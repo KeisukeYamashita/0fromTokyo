@@ -8,6 +8,22 @@ type App struct {
 	*revel.Controller
 }
 
-func (c App) Index() revel.Result {
-	return c.Render()
+func (c App) Index(myName string) revel.Result {
+	return c.Render(myName)
 }
+<<<<<<< Updated upstream
+=======
+
+func (c App) About(myName string) revel.Result {
+	c.Validation.Required(myName).Message("Your name is required!")
+	c.Validation.MinSize(myName, 3).Message("Your name is not long enough!")
+
+	if c.Validation.HasErrors() {
+		c.Validation.Keep()
+		c.FlashParams()
+		return c.Redirect(App.Index)
+	}
+
+	return c.Render(myName)
+}
+>>>>>>> Stashed changes

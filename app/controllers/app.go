@@ -11,8 +11,6 @@ type App struct {
 func (c App) Index(myName string) revel.Result {
 	return c.Render(myName)
 }
-<<<<<<< Updated upstream
-=======
 
 func (c App) About(myName string) revel.Result {
 	c.Validation.Required(myName).Message("Your name is required!")
@@ -26,4 +24,3 @@ func (c App) About(myName string) revel.Result {
 
 	return c.Render(myName)
 }
->>>>>>> Stashed changes
